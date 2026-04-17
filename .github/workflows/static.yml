@@ -7,6 +7,11 @@ on:
       - test
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
 
   dev:
@@ -23,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: echo "Hello Test Stage"
 
-  main:
+  prod:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
